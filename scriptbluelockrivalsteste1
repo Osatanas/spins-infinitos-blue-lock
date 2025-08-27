@@ -1,8 +1,14 @@
 local player = game.Players.LocalPlayer
 local spinRemote = game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SpinStyle")
 
--- Loop infinito de spins de estilo
-while true do
-    task.wait(1) -- intervalo entre spins (ajustável)
-    spinRemote:InvokeServer("Spin") -- executa o spin de estilo
+local totalSpins = 1000
+local currentSpin = 0
+
+while currentSpin < totalSpins do
+    task.wait(0.5) -- intervalo entre spins (ajustável)
+    spinRemote:InvokeServer("Spin")
+    currentSpin += 1
+    print("Spin #" .. currentSpin)
 end
+
+print("✅ 1000 Lucky Style Spins concluídos!")
