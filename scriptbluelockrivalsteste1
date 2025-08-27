@@ -1,0 +1,8 @@
+local player = game.Players.LocalPlayer
+local spinRemote = game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SpinStyle")
+
+-- Loop de spins infinitos
+while true do
+    task.wait(0.5) -- intervalo entre spins
+    spinRemote:InvokeServer("Spin") -- executa o spin
+end
